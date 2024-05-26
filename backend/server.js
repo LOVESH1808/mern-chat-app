@@ -19,7 +19,7 @@ app.use("/api/user", userRoutes)
 app.use("/api/chat", chatRoutes)
 app.use("/api/message", messageRoutes)
 app.use(cors({
-    origin: 'https://localhost:3000', // Change to your frontend URL
+    origin: 'https://mern-chat-app-1-cju7.onrender.com', // Change to your frontend URL
     methods: ['GET', 'POST', 'PUT'],
     credentials: true
   }));
@@ -50,7 +50,7 @@ const server = app.listen(PORT, console.log(`Server started on Port ${PORT}`))
 const io = require('socket.io')(server, {
     pingTimeout:60000,
     cors: {
-        origin: "http://localhost:3000",
+        origin: "https://mern-chat-app-1-cju7.onrender.com",
         methods: ['GET', 'POST'],
         credentials: true
     },
@@ -61,7 +61,7 @@ io.on("connection", (socket) => {
 
     socket.on("setup", (userData) => {
         socket.join(userData._id)
-        // console.log(userData._id)
+        console.log(userData._id)
         socket.emit("connected")
     })
 
