@@ -22,7 +22,7 @@
     "react-scrollable-feed": "^2.0.2",
     "socket.io-client": "^4.7.5",
     "web-vitals": "^2.1.4",
-    "@babel/plugin-transform-private-property-in-object": "^7.24.6"
+    "@babel/preset-env": "^7.22.20"
   },
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
@@ -49,7 +49,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@babel/plugin-transform-private-property-in-object": "^7.24.6"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }
