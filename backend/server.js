@@ -8,6 +8,7 @@ const messageRoutes = require('./routes/messageRoutes')
 const app = express()
 const {notFound, errorHandler} = require('./middlewares/errorMiddleware')
 const path = require('path')
+const cors = require('cors');
 
 dotenv.config({path: "backend/.env"})
 connectdb()
@@ -17,7 +18,11 @@ app.use(express.json()) //to accept json data
 app.use("/api/user", userRoutes)
 app.use("/api/chat", chatRoutes)
 app.use("/api/message", messageRoutes)
-
+app.use(cors({
+    origin: 'https://localhost:3000', // Change to your frontend URL
+    methods: ['GET', 'POST', 'PUT'],
+    credentials: true
+  }));
 // ------------------DEPLOYMENT----------------
 
 const __dirname1 = path.resolve()
